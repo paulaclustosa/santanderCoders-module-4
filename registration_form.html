@@ -41,27 +41,27 @@
                     event.preventDefault();
                 })
 
-                createDeleteButton(createItemList())
+                createDeleteButton(createListItem())
 
                 input.value = ''
             }
         }
 
-        const createItemList = () => {
-            const itemList = document.createElement('li')
-            list.appendChild(itemList)
-            itemList.innerText = input.value
-            return itemList
+        const createListItem = () => {
+            const listItem = document.createElement('li')
+            list.appendChild(listItem)
+            listItem.innerText = input.value
+            return listItem
         }
 
-        const createDeleteButton = (itemList) => {
+        const createDeleteButton = (listItem) => {
             const deleteButton = document.createElement('button')
-            itemList.appendChild(deleteButton)
+            listItem.appendChild(deleteButton)
             deleteButton.innerText = "delete"
-            deleteButton.addEventListener('click', () => removeItemList(itemList))
+            deleteButton.addEventListener('click', () => removeItemList(listItem))
         }
 
-        const removeItemList = (itemList) => itemList.remove();
+        const removeItemList = (listItem) => listItem.remove();
 
         okButton.addEventListener('click', () => handleInput());
     </script>
