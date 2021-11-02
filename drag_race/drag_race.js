@@ -1,8 +1,8 @@
 let timeId = undefined;
 
+const input = document.querySelector('input')
 const form = document.querySelector('form')
 const stopwatch = document.querySelector('.stopwatch')
-const input = document.querySelector('input')
 
 const _STOPWATCH_OPEN_CLASS = "--start-stopwatch"
 
@@ -27,18 +27,18 @@ const runStopwatch = () => {
 let minutes = 0;
 let seconds = 0;
 
+const time = document.querySelector('span[name="time"]')
+
 const updateTime = () => {
   seconds += 1
 
   if (seconds === 60) {
-  minutes += 1
-  seconds = 0
+    minutes += 1
+    seconds = 0
   }
 
   displayTime(time)
 }
-
-const time = document.querySelector('span[name="time"]')
 
 const displayTime = (element) => {
   const min = minutes < 10 ? "0" + minutes : minutes
@@ -46,23 +46,32 @@ const displayTime = (element) => {
   element.innerText = `${min}:${sec}`
 }
 
-const stopStopwatch = () => {
-  stopwatch.classList.remove(_STOPWATCH_OPEN_CLASS)
-
-  clearInterval(timeId)
-  timeId = undefined
-
-  createListItem(setPlayerData())
-  addPlayerToSessionStorage(setPlayerData())
-  addBestPlayerToLocalStorage()
-
-  input.value = ''
-  minutes = 0
-  seconds = 0
-  displayTime(time)
-}
-
 const list = document.querySelector('ul')
+
+const stopStopwatch = () => {
+
+  let stopwatchClassListArray = [...stopwatch.classList]
+
+  if (!stopwatchClassListArray.includes('--start-stopwatch')) {
+    return
+  }
+
+  else {
+    stopwatch.classList.remove(_STOPWATCH_OPEN_CLASS)
+
+    clearInterval(timeId)
+    timeId = undefined
+
+    createListItem(setPlayerData())
+    addPlayerToSessionStorage(setPlayerData())
+    addBestPlayerToLocalStorage()
+
+    input.value = ''
+    minutes = 0
+    seconds = 0
+    displayTime(time)
+  }
+}
 
 const createListItem = (playerData) => {
   const listItem = document.createElement('li')
