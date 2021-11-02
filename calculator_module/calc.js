@@ -162,12 +162,12 @@ const createCalculator = (() => {
     }
   }
 
-  const _setPreviousOperandToUndefined = () => {
-    previousOperand = undefined;
-  }
-
   const _updateCurrentOperand = (result) => {
     currentOperand = result.toString().split('')
+  }
+  
+  const _setPreviousOperandToUndefined = () => {
+    previousOperand = undefined;
   }
 
   return {
