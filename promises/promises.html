@@ -19,7 +19,7 @@
     button.addEventListener('click',
       () => {
         Promise.allSettled(createPromises())
-          .then(setPromiseResultValues)
+          .then(getPromiseResultValues)
           .then(createListItem)
       })
 
@@ -45,7 +45,7 @@
       return randomArray
     }
 
-    const setPromiseResultValues = (promiseResult) => {
+    const getPromiseResultValues = (promiseResult) => {
       let promiseResultValues = []
       promiseResult.forEach(element => promiseResultValues = [...promiseResultValues, element.value])
       return promiseResultValues
