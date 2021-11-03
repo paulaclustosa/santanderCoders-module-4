@@ -14,47 +14,50 @@
   <ul></ul>
 
   <script>
+    const button = document.querySelector('button')
+
+    button.addEventListener('click',
+      () => {
+        Promise.allSettled(createPromises())
+          .then(setPromiseResultValues)
+          .then(createListItem)
+      })
 
     const createPromises = () => {
-      const promise1 = new Promise((resolve) => {
-        setTimeout(() => resolve(createArray()), Math.random() * 2500)
-      })
-      const promise2 = new Promise((resolve) => {
-        setTimeout(() => resolve(createArray()), Math.random() * 5000)
-      })
-      const promise3 = new Promise((resolve) => {
-        setTimeout(() => resolve(createArray()), Math.random() * 7500)
+      const promise1st = new Promise(resolve => {
+        setTimeout(() => resolve(createRandomArray()), Math.random() * 2500)
       })
 
-      Promise.allSettled([promise1, promise2, promise3])
-        .then(joinValues)
-        .then(createListItem)
+      const promise2nd = new Promise(resolve => {
+        setTimeout(() => resolve(createRandomArray()), Math.random() * 5000)
+      })
+
+      const promise3rd = new Promise(resolve => {
+        setTimeout(() => resolve(createRandomArray()), Math.random() * 7500)
+      })
+
+      const promises = [promise1st, promise2nd, promise3rd]
+      return promises
     }
 
-    const createArray = () => {
-      const newArray = Array.from({ length: Math.random() * 25 }, () => Math.floor(Math.random() * 25))
-      return newArray
+    const createRandomArray = () => {
+      const randomArray = Array.from({ length: Math.random() * 25 }, () => Math.floor(Math.random() * 25))
+      return randomArray
     }
 
-    const joinValues = (arrayOfObjects) => {
-      let values = []
-      arrayOfObjects.forEach(object => values = [...values, object.value])
-      return values
+    const setPromiseResultValues = (promiseResult) => {
+      let promiseResultValues = []
+      promiseResult.forEach(element => promiseResultValues = [...promiseResultValues, element.value])
+      return promiseResultValues
     }
 
     const list = document.querySelector('ul')
 
-    const createListItem = (values) => {
+    const createListItem = (promiseResultValues) => {
       const listItem = document.createElement('li')
       list.appendChild(listItem)
-      listItem.innerText = values
+      listItem.innerText = promiseResultValues
     }
-
-    const button = document.querySelector('button')
-
-    button.addEventListener('click',
-      createPromises())
-
   </script>
 </body>
 
