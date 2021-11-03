@@ -87,7 +87,6 @@ button[name="clear"] {
   grid-column-end: 5;
 }
 
-
 button[name="operand"] {
   background-color: #CDF1AE;
 }
@@ -109,11 +108,6 @@ button[name="equals"] {
 
 .yellow:hover {
   background-color: #F9DF36;
-}
-
-div[name="result"] {
-  font: normal normal bold 0.8rem Arial;
-  height: 0.7rem;
 }
 
 div[name="previous_operand"] {
