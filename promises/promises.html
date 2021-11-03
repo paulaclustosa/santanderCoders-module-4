@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promises Challenge</title>
+</head>
+
+<body>
+  <h1>Desafio Promises | Paula Lustosa</h1>
+  <button type="button">Gerar lista</button>
+  <ul></ul>
+
+  <script>
+
+    const createPromises = () => {
+      const promise1 = new Promise((resolve) => {
+        setTimeout(() => resolve(createArray()), Math.random() * 2500)
+      })
+      const promise2 = new Promise((resolve) => {
+        setTimeout(() => resolve(createArray()), Math.random() * 5000)
+      })
+      const promise3 = new Promise((resolve) => {
+        setTimeout(() => resolve(createArray()), Math.random() * 7500)
+      })
+
+      Promise.allSettled([promise1, promise2, promise3])
+        .then(joinValues)
+        .then(createListItem)
+    }
+
+    const createArray = () => {
+      const newArray = Array.from({ length: Math.random() * 25 }, () => Math.floor(Math.random() * 25))
+      return newArray
+    }
+
+    const joinValues = (arrayOfObjects) => {
+      let values = []
+      arrayOfObjects.forEach(object => values = [...values, object.value])
+      return values
+    }
+
+    const list = document.querySelector('ul')
+
+    const createListItem = (values) => {
+      const listItem = document.createElement('li')
+      list.appendChild(listItem)
+      listItem.innerText = values
+    }
+
+    const button = document.querySelector('button')
+
+    button.addEventListener('click',
+      createPromises())
+
+  </script>
+</body>
+
+</html>
