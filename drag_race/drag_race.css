@@ -1,50 +1,63 @@
 :root {
-  ---base-unit: 0.5rem;
-  ---small: var(---base-unit);
-  ---medium: calc(3*var(---base-unit));
-  ---large: calc(4*var(---base-unit));
+  ---base-unit: 12px;
+  ---small: calc(1*var(---base-unit));
+  ---medium: calc(2*var(---base-unit));
+  ---large: calc(3*var(---base-unit));
+}
+
+* {
+  box-sizing: border-box;
+  color: white;
 }
 
 body {
-  background-color: #F1E9CB;
+  background-color: #1C1C1C;
   font: 100%/1.5rem arial, helvetica, sans-serif;
 }
 
-div[name="container"] {
+.container {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
 
 h1 {
-  color: #76BACB;
-  font-size: var(---large);
-  margin: var(---small) var(---medium);
-}
-
-form {
-  display: flex;
-  flex-direction: column;
+  color: #F4831B;
+  font-size: 40px;
+  text-align: center;
+  margin: var(---small) 0;
 }
 
 label {
-  margin: 0 var(---medium);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: var(---small);
+  text-align: center;
 }
 
 input {
-  border: 1px solid black;
-  margin: var(---small) 0;
-  padding: calc(var(---small)/2) ;
+  border: 1px solid #F4831B;
+  color: black;
+  padding: calc(var(---small)/2);
+  width: 300px;
+}
+
+.button_area {
+  display: flex;
+  justify-content: center;
+  padding-bottom: var(---small);
 }
 
 button {
-  background-color: black;
-  border: 1px solid white;
-  color: white;
+  background-color:#EEEB27;
+  border: 1px solid #EEEB27;
+  border-radius: var(---medium);
+  color: #1C1C1C;
   cursor: pointer;
   padding: calc(var(---small)/2);
-  margin: 0 auto var(---small) var(---medium);
-  width: calc(1.75*var(---large));
+  margin: 0 calc(var(---small)/2);
+  width: 8%;
 }
 
 .stopwatch:not(.--start-stopwatch) {
@@ -53,26 +66,42 @@ button {
 
 .stopwatch {
   align-items: center;
-  background-color: black;
-  box-shadow: 0 0 1em #76bacb;
-  color: #76BACB;
+  background-color: white;
+  box-shadow: 0 0 1em #EEEB27;
+  color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  left: calc(50% - 75px);
   height: 100px;
   position: fixed;
-  right: calc(50% - 50px);
+  left: calc(50% - 75px);
   width: 150px;
 }
 
-h2 {
-  font-size: var(---medium);
-  padding: 10px;
+span {
+  color: black;
+}
+
+section {
+  border: 1px solid #D02823;
+  margin-top: 112px;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding: calc(var(---small)/2) 0;
+}
+
+ul {
+  font-size: 26px;
+  font-weight: bold;
+  color: #F4831B;
+  margin: 0;
+  padding: 0 calc(var(---small)/2);
 }
 
 li {
-  margin: 0 auto var(---small) var(---medium);
+  font-size: 20px;
+  font-weight: normal;
   list-style-position: inside;
   list-style-type: square;
+  padding: 0 calc(var(---small)/2);
 }
