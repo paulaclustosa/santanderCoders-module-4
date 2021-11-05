@@ -1,6 +1,9 @@
 body {
-  background-color: #F7E9D1;
+  background-color: #0D445F;
+  box-sizing: border-box;
+  color: white;
   font: 100%/1.5rem arial, helvetica, sans-serif;
+  margin: 0;  
 }
 
 .container {
@@ -9,31 +12,39 @@ body {
   margin-right: auto;
 }
 
+section {
+  display: none;
+}
+
 section:not(.--is-closed) {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-section {
-  display: none;
-}
-
 h1 {
-  font-size: 1.5rem;
-  margin: .1rem;
+  color: #FF0F77;
+  font-size: 2rem;
+  padding: .75rem;
+  margin: 0;
 }
 
 p {
-  margin: .1rem;
-  font-size: 0.8rem;
+  margin: 0;
+  padding-bottom: .5rem;
 }
 
 button[name="open_calc"] {
-  background-color: #202D57;
-  color: #F5C1C1;
-  border-radius: 0.8rem;
-  margin: .1rem;
+  background-color: black;
+  border-radius: 1rem;
+  color: white;
+  padding: .4rem;
+  transition: 350ms;
+}
+
+button[name="open_calc"]:hover {
+  color: #6FEBF4;
+  padding: .5rem
 }
 
 .calc_box {
@@ -46,9 +57,8 @@ button[name="open_calc"] {
   display: none;
 }
 
-
 .calc_innerbox {
-  background-color: #202D57;
+  background-color: black;
   display: grid;
   gap: .1rem .1rem;
   grid-template-columns: repeat(4, 3rem);
@@ -62,10 +72,19 @@ button[name="open_calc"] {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: end;
+  justify-content: space-between;
   grid-column-start: 1;
   grid-column-end: 5;
+}
 
+div[name="previous_operand"] {
+  color: black;
+  font-size: 0.8rem;
+}
+
+div[name="current_operand"] {
+  color: black;
+  font-size: 1.6rem;
 }
 
 button {
@@ -76,46 +95,37 @@ button {
 }
 
 button[name="undo"] {
-  background-color: #FFFEBA;
   grid-column-start: 1;
   grid-column-end: 3;
 }
 
 button[name="clear"] {
-  background-color: #FFFEBA;
   grid-column-start: 3;
   grid-column-end: 5;
 }
 
+.yellow {
+  background-color: #F7E482;
+  transition-duration: 350ms;
+}
+
+.yellow:hover {
+  background-color: #FFDE05;
+}
+
 button[name="operand"] {
-  background-color: #CDF1AE;
+  background-color: #7DEB94;
+  transition-duration: 350ms;
 }
 button[name="operand"]:hover {
   background-color: #40B36A;
 }
 
 button[name="operator"] {
-  background-color: #D0D0FE;
+  background-color: #6FEBF4;
+  transition-duration: 500ms;
 }
 
 button[name="operator"]:hover {
-  background-color: #9C599E;
-}
-
-button[name="equals"] {
-  background-color: #FFFEBA;
-}
-
-.yellow:hover {
-  background-color: #F9DF36;
-}
-
-div[name="previous_operand"] {
-  font: normal normal bold 0.8rem Arial;
-  height: 0.7rem;
-}
-
-div[name="current_operand"] {
-  font: normal normal bold 1.6rem Arial;
-  height: 1.6rem;
+  background-color: #729CF2;
 }
