@@ -1,13 +1,7 @@
-:root {
-  ---base-unit: 12px;
-  ---small: calc(1*var(---base-unit));
-  ---medium: calc(2*var(---base-unit));
-  ---large: calc(3*var(---base-unit));
-}
-
 * {
   box-sizing: border-box;
   color: white;
+  margin: 0;
 }
 
 body {
@@ -24,84 +18,93 @@ body {
 h1 {
   color: #F4831B;
   font-size: 40px;
+  margin: 12px;
   text-align: center;
-  margin: var(---small) 0;
 }
 
 label {
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding-bottom: var(---small);
+  padding-bottom: 12px;
   text-align: center;
 }
 
 input {
-  border: 1px solid #F4831B;
   color: black;
-  padding: calc(var(---small)/2);
+  padding: 4px;
   width: 300px;
 }
 
 .button_area {
   display: flex;
   justify-content: center;
-  padding-bottom: var(---small);
+  padding-bottom: 12px;
 }
 
 button {
   background-color:#EEEB27;
   border: 1px solid #EEEB27;
-  border-radius: var(---medium);
+  border-radius: 16px;
   color: #1C1C1C;
   cursor: pointer;
-  padding: calc(var(---small)/2);
-  margin: 0 calc(var(---small)/2);
-  width: 8%;
+  padding: 4px;
+  margin: 0 4px;
+  transition: 350ms;
+  width: 60px;
 }
 
-.stopwatch:not(.--start-stopwatch) {
-  display: none;
+button:hover {
+  background-color: #3CB7CB;
+}
+
+.race {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .stopwatch {
   align-items: center;
-  background-color: white;
-  box-shadow: 0 0 1em #EEEB27;
-  color: black;
+  border: 1px solid #F4831B;
+  border-radius: 16px;
+  color: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 100px;
-  position: fixed;
-  left: calc(50% - 75px);
-  width: 150px;
+  margin-bottom: 12px;
+  width: 100px;
 }
 
-span {
-  color: black;
+.msec {
+  font-size: 15px;
+}
+
+.car {
+  align-self: flex-start;
+  content: url("https://i.ibb.co/mH9Xm3p/car01.png");
+  height: 70px;
+  margin-bottom: 12px;
+  position: relative;
+  width: 100px;
 }
 
 section {
-  border: 1px solid #D02823;
-  margin-top: 112px;
   margin-left: 25%;
   margin-right: 25%;
-  padding: calc(var(---small)/2) 0;
 }
 
 ul {
-  font-size: 26px;
+  font-size: 30px;
   font-weight: bold;
   color: #F4831B;
   margin: 0;
-  padding: 0 calc(var(---small)/2);
+  padding: 0;
 }
 
 li {
-  font-size: 20px;
   font-weight: normal;
+  font-size: 20px;
   list-style-position: inside;
   list-style-type: square;
-  padding: 0 calc(var(---small)/2);
+  padding: 4px;
 }
